@@ -8,11 +8,9 @@ class Lista extends React.Component {
         {this.props.data.map(function (item,index) {
           return (
             <div>
-              
               <li>
                 <Link to={`/PersonDetail/${index}`}>{item.name.first}</Link>
               </li>
-              
             </div>
           )
         })}

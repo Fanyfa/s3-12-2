@@ -23,7 +23,6 @@ class App extends Component {
       })
       .then((json) => {
         const persons = json.results;
-        console.log(persons)
         this.setState({
           data: persons
         })
@@ -34,8 +33,14 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path='/PersonDetail/:id' component={PersonDetail} />
-          <Route exact path='/' render={() => <Lista data={this.state.data}/>} />
+          <Route
+            path='/PersonDetail/:id'
+            render={props => <PersonDetail match={props.match} data={this.state.data}/>}
+          />
+          <Route
+            exact path='/' 
+            render={() => <Lista data={this.state.data}/>}
+          />
         </Switch>
       </div>
     );
